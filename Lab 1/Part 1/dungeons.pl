@@ -15,14 +15,12 @@ class('Cleric').
 class('Warlock').
 class('Sorcerer').
 class('Alchemist').
-
-% ii - Stats
-stat('STR').
-stat('DEX').
-stat('CNS').
-stat('INT').
-stat('WSD').
-stat('CHR').
+class('Warlord').
+class('Jaeger').
+class('Stargazer').
+class('Blood Hunter').
+class('Runekeeper').
+class('Shaman').
 
 % 2 - Facts with 2 arguments
 
@@ -41,6 +39,12 @@ primary_stat('Rogue', 'DEX').
 primary_stat('Ranger', 'DEX').
 primary_stat('Sorcerer', 'CHR').
 primary_stat('Alchemist', 'INT').
+primary_stat('Warlord', 'STR').
+primary_stat('Jaeger', 'CNS').
+primary_stat('Stargazer', 'INT').
+primary_stat('Blood Hunter', 'DEX').
+primary_stat('Runekeeper 'INT').
+primary_stat('Shaman 'WSD').
 
 % ii - Primary fighting styles for classes
 primary_fighting_style('Bard', 'support').
@@ -50,13 +54,19 @@ primary_fighting_style('Wizard', 'caster').
 primary_fighting_style('Druid', 'caster').
 primary_fighting_style('Monk', 'melee').
 primary_fighting_style('Rogue', 'melee').
-primary_fighting_style('Paladin', 'melee').
+primary_fighting_style('Paladin', 'swordlemage').
 primary_fighting_style('Ranger', 'ranged').
 primary_fighting_style('Artificer', 'caster').
 primary_fighting_style('Cleric', 'support').
 primary_fighting_style('Warlock', 'caster').
 primary_fighting_style('Sorcerer', 'caster').
 primary_fighting_style('Alchemist', 'support').
+primary_fighting_style('Warlord', 'support').
+primary_fighting_style('Jaeger', 'melee').
+primary_fighting_style('Stargazer', 'caster').
+primary_fighting_style('Blood Hunter', 'swordlemage').
+primary_fighting_style('Runekeeper 'caster').
+primary_fighting_style('Shaman 'caster').
 
 % iii - Difficulty scale for classes
 difficulty('Bard', 7).
@@ -73,6 +83,12 @@ difficulty('Cleric', 5).
 difficulty('Warlock', 6).
 difficulty('Sorcerer', 10).
 difficulty('Alchemist', 8).
+difficulty('Warlord', 2).
+difficulty('Jaeger', 2).
+difficulty('Stargazer', 9).
+difficulty('Blood Hunter', 6).
+difficulty('Runekeeper', 4).
+difficulty('Shaman', 8).
 
 % 3 - Rules
 
@@ -86,15 +102,17 @@ challenging(Class) :-
 	difficulty(Class, Difficulty),
 	Difficulty >= 8.
 	
-% Militant classes are those that fight in melee or with ranged weapons
+% Militant classes are those that fight in melee or with ranged weapons (swordlemage fits here)
 militant(Class) :-
 	primary_fighting_style(Class, 'melee');
-	primary_fighting_style(Class, 'ranged').
+	primary_fighting_style(Class, 'ranged');
+	primary_fighting_style(Class, 'swordlemage').
 	
-% Magic classes are those that cast spells or support their partymates
+% Magic classes are those that cast spells or support their partymates (swordlemage fits here as well)
 magic(Class) :-
 	primary_fighting_style(Class, 'caster');
-	primary_fighting_style(Class, 'support').
+	primary_fighting_style(Class, 'support');
+	primary_fighting_style(Class, 'swordlemage').
 	
 % Body classes are those whose primary stat is either STR, DEX or CNS
 body(Class) :-
