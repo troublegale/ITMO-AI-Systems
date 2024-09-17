@@ -1,0 +1,9 @@
+hasDifficulty value 7
+
+hasDifficulty only xsd:int[<= 5]
+
+BodyClass and MagicClass
+
+hasFightingStyle value "ranged" and BeginnerFriendlyClass
+
+ChallengingClass and not(hasStat value "INT")
