@@ -78,23 +78,23 @@ difficulty('Alchemist', 8).
 
 % Class is beginner-friendly if it has difficulty <= 3
 beginner_friendly(Class) :-
-    difficulty(Class, Difficulty),
-    Difficulty =< 3.
+	difficulty(Class, Difficulty),
+	Difficulty =< 3.
 
 % Class challenging if it has difficulty >= 8
 beginner_friendly(Class) :-
-    difficulty(Class, Difficulty),
-    Difficulty >= 8.
+	difficulty(Class, Difficulty),
+	Difficulty >= 8.
 	
 % Militant classes are those that fight in melee or with ranged weapons
 militant(Class) :-
 	primary_fighting_style(Class, 'melee');
-    primary_fighting_style(Class, 'ranged').
+	primary_fighting_style(Class, 'ranged').
 	
 % Magic classes are those that cast spells or support their partymates
 magic(Class) :-
 	primary_fighting_style(Class, 'caster');
-    primary_fighting_style(Class, 'support').
+	primary_fighting_style(Class, 'support').
 	
 % Body classes are those whose primary stat is either STR, DEX or CNS
 body(Class) :-
