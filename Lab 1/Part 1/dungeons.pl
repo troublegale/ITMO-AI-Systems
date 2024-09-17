@@ -82,7 +82,7 @@ beginner_friendly(Class) :-
 	Difficulty =< 3.
 
 % Class challenging if it has difficulty >= 8
-beginner_friendly(Class) :-
+challenging(Class) :-
 	difficulty(Class, Difficulty),
 	Difficulty >= 8.
 	
@@ -103,7 +103,7 @@ body(Class) :-
 	primary_stat(Class, 'CNS').
 	
 % Soul classes are those whose primary stat is either INT, WSD or CHR
-body(Class) :-
+soul(Class) :-
 	primary_stat(Class, 'INT');
 	primary_stat(Class, 'WSD');
 	primary_stat(Class, 'CHR').
