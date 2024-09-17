@@ -73,3 +73,37 @@ difficulty('Cleric', 5).
 difficulty('Warlock', 6).
 difficulty('Sorcerer', 10).
 difficulty('Alchemist', 8).
+
+% 3 - Rules
+
+% Class is beginner-friendly if it has difficulty <= 3
+beginner_friendly(Class) :-
+    difficulty(Class, Difficulty),
+    Difficulty =< 3.
+
+% Class challenging if it has difficulty >= 8
+beginner_friendly(Class) :-
+    difficulty(Class, Difficulty),
+    Difficulty >= 8.
+	
+% Militant classes are those that fight in melee or with ranged weapons
+militant(Class) :-
+	primary_fighting_style(Class, 'melee');
+    primary_fighting_style(Class, 'ranged').
+	
+% Magic classes are those that cast spells or support their partymates
+magic(Class) :-
+	primary_fighting_style(Class, 'caster');
+    primary_fighting_style(Class, 'support').
+	
+% Body classes are those whose primary stat is either STR, DEX or CNS
+body(Class) :-
+	primary_stat(Class, 'STR');
+	primary_stat(Class, 'DEX');
+	primary_stat(Class, 'CNS').
+	
+% Soul classes are those whose primary stat is either INT, WSD or CHR
+body(Class) :-
+	primary_stat(Class, 'INT');
+	primary_stat(Class, 'WSD');
+	primary_stat(Class, 'CHR').
