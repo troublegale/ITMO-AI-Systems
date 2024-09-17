@@ -56,7 +56,7 @@ primary_fighting_style('Artificer', 'caster').
 primary_fighting_style('Cleric', 'support').
 primary_fighting_style('Warlock', 'caster').
 primary_fighting_style('Sorcerer', 'caster').
-primary_stat('Alchemist', 'support').
+primary_fighting_style('Alchemist', 'support').
 
 % iii - Difficulty scale for classes
 difficulty('Bard', 7).
