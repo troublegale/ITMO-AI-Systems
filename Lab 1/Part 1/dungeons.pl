@@ -59,18 +59,17 @@ primary_fighting_style('Sorcerer', 'caster').
 primary_stat('Alchemist', 'support').
 
 % iii - Difficulty scale for classes
-difficulty('Bard', 'medium').
-difficulty('Barbarian', 'easy').
-difficulty('Fighter', 'easy').
-difficulty('Wizard', 'hard').
-difficulty('Druid', 'hard').
-difficulty('Monk', 'medium').
-difficulty('Rogue', 'easy').
-difficulty('Paladin', 'medium').
-difficulty('Ranger', 'easy').
-difficulty('Artificer', 'medium').
-difficulty('Cleric', 'medium').
-difficulty('Warlock', 'hard').
-difficulty('Sorcerer', 'hard').
-difficulty('Alchemist', 'hard').
-
+difficulty('Bard', 7).
+difficulty('Barbarian', 2).
+difficulty('Fighter', 1).
+difficulty('Wizard', 9).
+difficulty('Druid', 7).
+difficulty('Monk', 4).
+difficulty('Rogue', 2).
+difficulty('Paladin', 3).
+difficulty('Ranger', 3).
+difficulty('Artificer', 6).
+difficulty('Cleric', 5).
+difficulty('Warlock', 6).
+difficulty('Sorcerer', 10).
+difficulty('Alchemist', 8).
