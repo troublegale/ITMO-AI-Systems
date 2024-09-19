@@ -43,8 +43,8 @@ primary_stat('Warlord', 'STR').
 primary_stat('Jaeger', 'CNS').
 primary_stat('Stargazer', 'INT').
 primary_stat('Blood Hunter', 'DEX').
-primary_stat('Runekeeper 'INT').
-primary_stat('Shaman 'WSD').
+primary_stat('Runekeeper', 'INT').
+primary_stat('Shaman', 'WSD').
 
 % ii - Primary fighting styles for classes
 primary_fighting_style('Bard', 'support').
@@ -65,8 +65,8 @@ primary_fighting_style('Warlord', 'support').
 primary_fighting_style('Jaeger', 'melee').
 primary_fighting_style('Stargazer', 'caster').
 primary_fighting_style('Blood Hunter', 'swordlemage').
-primary_fighting_style('Runekeeper 'caster').
-primary_fighting_style('Shaman 'caster').
+primary_fighting_style('Runekeeper', 'caster').
+primary_fighting_style('Shaman', 'caster').
 
 % iii - Difficulty scale for classes
 difficulty('Bard', 7).
