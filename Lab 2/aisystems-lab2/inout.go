@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bufio"
 	"errors"
 	"fmt"
 	"os"
@@ -22,6 +23,32 @@ func Greet() {
 	fmt.Println(strings.Repeat("-", len(hello)))
 	fmt.Println(hello)
 	fmt.Println(strings.Repeat("-", len(hello)))
+}
+
+func Goodbye() {
+	fmt.Println("Closing application. Goodbye!")
+}
+
+// ShowHelpOptions TODO
+func ShowHelpOptions() {
+
+}
+
+// ShowQueryingHelp TODO
+func ShowQueryingHelp() {
+
+}
+
+// ShowTokensHelp TODO
+func ShowTokensHelp() {
+
+}
+
+var scanner = bufio.NewScanner(os.Stdin)
+
+func ReadInput() string {
+	scanner.Scan()
+	return strings.TrimSpace(scanner.Text())
 }
 
 func ReadKnowledgeBaseFromFile(path string) string {
