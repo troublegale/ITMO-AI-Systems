@@ -16,6 +16,16 @@ func InitiateKnowledgeBase(pro *prolog.Interpreter, path string) {
 	}
 }
 
+var primaryAttribute = []string{"INT", "DEX", "CNS", "INT", "WSD", "CHR"}
+
+var primaryFightingStyle = []string{"melee", "ranged", "caster", "support", "swordlemage"}
+
+var rules = []string{"beginner_friendly", "challenging", "militant", "magic", "body", "soul"}
+
+func HandleQuery(pro *prolog.Interpreter, inputSplit []string) {
+
+}
+
 //q := `class(Class), \+ (beginner_friendly(Class); primary_fighting_style(Class, 'caster')), difficulty(Class, Diff), Diff < 8.`
 //sols, err := pro.Query(q)
 //if err != nil {

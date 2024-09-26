@@ -19,5 +19,8 @@ func main() {
 	pro := InitiateInterpreter()
 	InitiateKnowledgeBase(pro, path)
 	fmt.Println("Knowledge base initialized. You can start writing queries!")
+	fmt.Println()
 
+	ShowHelpOptions()
+	HandleUserInput(pro)
 }
