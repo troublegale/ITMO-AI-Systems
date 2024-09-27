@@ -47,8 +47,8 @@ func ShowQueryingHelp() {
 	fmt.Println("Example: '!primary_stat: STR'")
 	fmt.Println()
 	fmt.Println("% Query with multiple options (OR)")
-	fmt.Println("Usage: 'parameter: (value1 value2 ...)'")
-	fmt.Println("Example: 'primary_stat: (INT WSD)'")
+	fmt.Println("Usage: 'parameter: (value1,value2,...)'")
+	fmt.Println("Example: 'primary_stat: (INT,WSD)'")
 	fmt.Println()
 	fmt.Println("% Query with multiple options (AND)")
 	fmt.Println("Usage: 'parameter1: value parameter2: value'")
@@ -59,7 +59,7 @@ func ShowQueryingHelp() {
 	fmt.Println("Example: '-beginner_friendly'")
 	fmt.Println()
 	fmt.Println("% All combined together")
-	fmt.Println("primary_stat: (DEX CHR) !-beginner_friendly !primary_fighting_style: caster difficulty: <9")
+	fmt.Println("primary_stat: (DEX,CHR) !-beginner_friendly !primary_fighting_style: caster difficulty: <9")
 	fmt.Println()
 }
 
@@ -74,13 +74,15 @@ func ShowParametersHelp() {
 func HandleUserInput(pro *prolog.Interpreter) {
 	for {
 		fmt.Print("$ ")
-		input := readInput()
+		input := strings.ToLower(readInput())
 		if input != "" {
 			inputSplit := strings.Fields(input)
 			if strings.EqualFold(inputSplit[0], "help") {
 				handleHelp(inputSplit)
 			} else {
-				HandleQuery(pro, inputSplit)
+				answer := HandleQuery(pro, inputSplit)
+				fmt.Println(answer)
+				fmt.Println()
 			}
 		}
 	}
