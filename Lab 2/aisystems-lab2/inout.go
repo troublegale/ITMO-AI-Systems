@@ -34,6 +34,7 @@ func Goodbye() {
 func ShowHelpOptions() {
 	fmt.Println("To see query options use 'help query'")
 	fmt.Println("To see parameter options use 'help param'")
+	fmt.Println("To quit use 'quit'")
 	fmt.Println()
 }
 
@@ -47,26 +48,26 @@ func ShowQueryingHelp() {
 	fmt.Println("Example: '!primary_stat: STR'")
 	fmt.Println()
 	fmt.Println("% Query with multiple options (OR)")
-	fmt.Println("Usage: 'parameter: (value1,value2,...)'")
-	fmt.Println("Example: 'primary_stat: (INT,WSD)'")
+	fmt.Println("Usage: 'parameter: value1,value2,...'")
+	fmt.Println("Example: 'primary_stat: INT,WSD'")
 	fmt.Println()
 	fmt.Println("% Query with multiple options (AND)")
 	fmt.Println("Usage: 'parameter1: value parameter2: value'")
-	fmt.Println("Example: 'primary_stat: DEX difficulty: 4'")
+	fmt.Println("Example: 'primary_stat: DEX difficulty: =4'")
 	fmt.Println()
 	fmt.Println("% Query with a rule")
 	fmt.Println("Usage: '-rule'")
 	fmt.Println("Example: '-beginner_friendly'")
 	fmt.Println()
 	fmt.Println("% All combined together")
-	fmt.Println("primary_stat: (DEX,CHR) !-beginner_friendly !primary_fighting_style: caster difficulty: <9")
+	fmt.Println("primary_stat: DEX,CHR !-magic difficulty: >3,<9")
 	fmt.Println()
 }
 
 func ShowParametersHelp() {
 	fmt.Println("primary_stat: STR DEX CNS INT WSD CHR")
 	fmt.Println("primary_fighting_style: melee ranged caster support swordlemage")
-	fmt.Println("difficulty: [1-10] || [< > <= >=][1-10]")
+	fmt.Println("difficulty: [<>=][1-10]")
 	fmt.Println("rules: -beginner_friendly -challenging -militant -magic -body -soul")
 	fmt.Println()
 }
@@ -77,7 +78,10 @@ func HandleUserInput(pro *prolog.Interpreter) {
 		input := strings.ToLower(readInput())
 		if input != "" {
 			inputSplit := strings.Fields(input)
-			if strings.EqualFold(inputSplit[0], "help") {
+			if inputSplit[0] == "quit" {
+				return
+			}
+			if inputSplit[0] == "help" {
 				handleHelp(inputSplit)
 			} else {
 				answer := HandleQuery(pro, inputSplit)
@@ -93,7 +97,7 @@ func handleHelp(inputSplit []string) {
 		ShowHelpOptions()
 		return
 	}
-	switch strings.ToLower(inputSplit[1]) {
+	switch inputSplit[1] {
 	case "query":
 		ShowQueryingHelp()
 	case "param":

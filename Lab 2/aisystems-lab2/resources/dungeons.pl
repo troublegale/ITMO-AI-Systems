@@ -25,26 +25,26 @@ class('Shaman').
 % 2 - Facts with 2 arguments
 
 % i - Primary stats for classes
-primary_stat('Bard', 'CHR').
-primary_stat('Barbarian', 'STR').
-primary_stat('Fighter', 'DEX').
-primary_stat('Wizard', 'INT').
-primary_stat('Druid', 'WSD').
-primary_stat('Cleric', 'WSD').
-primary_stat('Artificer', 'INT').
-primary_stat('Warlock', 'CHR').
-primary_stat('Monk', 'DEX').
-primary_stat('Paladin', 'STR').
-primary_stat('Rogue', 'DEX').
-primary_stat('Ranger', 'DEX').
-primary_stat('Sorcerer', 'CHR').
-primary_stat('Alchemist', 'INT').
-primary_stat('Warlord', 'STR').
-primary_stat('Jaeger', 'CNS').
-primary_stat('Stargazer', 'INT').
-primary_stat('BloodHunter', 'DEX').
-primary_stat('Runekeeper', 'INT').
-primary_stat('Shaman', 'WSD').
+primary_stat('Bard', 'chr').
+primary_stat('Barbarian', 'str').
+primary_stat('Fighter', 'dex').
+primary_stat('Wizard', 'int').
+primary_stat('Druid', 'wsd').
+primary_stat('Cleric', 'wsd').
+primary_stat('Artificer', 'int').
+primary_stat('Warlock', 'chr').
+primary_stat('Monk', 'dex').
+primary_stat('Paladin', 'str').
+primary_stat('Rogue', 'dex').
+primary_stat('Ranger', 'dex').
+primary_stat('Sorcerer', 'chr').
+primary_stat('Alchemist', 'int').
+primary_stat('Warlord', 'str').
+primary_stat('Jaeger', 'cns').
+primary_stat('Stargazer', 'int').
+primary_stat('BloodHunter', 'dex').
+primary_stat('Runekeeper', 'int').
+primary_stat('Shaman', 'wsd').
 
 % ii - Primary fighting styles for classes
 primary_fighting_style('Bard', 'support').
@@ -114,14 +114,14 @@ magic(Class) :-
 	primary_fighting_style(Class, 'support');
 	primary_fighting_style(Class, 'swordlemage').
 
-% Body classes are those whose primary stat is either STR, DEX or CNS
+% Body classes are those whose primary stat is either str, dex or cns
 body(Class) :-
-	primary_stat(Class, 'STR');
-	primary_stat(Class, 'DEX');
-	primary_stat(Class, 'CNS').
+	primary_stat(Class, 'str');
+	primary_stat(Class, 'dex');
+	primary_stat(Class, 'cns').
 
-% Soul classes are those whose primary stat is either INT, WSD or CHR
+% Soul classes are those whose primary stat is either int, wsd or chr
 soul(Class) :-
-	primary_stat(Class, 'INT');
-	primary_stat(Class, 'WSD');
-	primary_stat(Class, 'CHR').
+	primary_stat(Class, 'int');
+	primary_stat(Class, 'wsd');
+	primary_stat(Class, 'chr').
