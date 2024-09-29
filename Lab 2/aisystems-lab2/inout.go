@@ -39,6 +39,9 @@ func ShowHelpOptions() {
 }
 
 func ShowQueryingHelp() {
+	fmt.Println("% Info about a class")
+	fmt.Println("Usage: 'class'")
+	fmt.Println("Example: 'barbarian'")
 	fmt.Println("% Simple query")
 	fmt.Println("Usage: 'parameter: value'")
 	fmt.Println("Example: 'primary_stat: INT'")
@@ -65,6 +68,9 @@ func ShowQueryingHelp() {
 }
 
 func ShowParametersHelp() {
+	fmt.Println("classes:", "bard", "barbarian", "fighter", "wizard", "druid", "cleric", "artificer\nwarlock",
+		"monk", "paladin", "rogue", "ranger", "sorcerer", "alchemist", "warlord\njaeger", "stargazer",
+		"bloodhunter", "runekeeper", "shaman")
 	fmt.Println("primary_stat: STR DEX CNS INT WSD CHR")
 	fmt.Println("primary_fighting_style: melee ranged caster support swordlemage")
 	fmt.Println("difficulty: [<>=][1-10]")

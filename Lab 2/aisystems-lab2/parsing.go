@@ -14,6 +14,9 @@ var parameters = map[string][]string{
 var rules = []string{"beginner_friendly", "challenging", "militant", "magic", "body", "soul"}
 
 func FormQuery(inputSplit []string) (string, bool) {
+	if len(inputSplit) == 1 && slices.Contains(Classes(), inputSplit[0]) {
+		return inputSplit[0], true
+	}
 	positiveParameters := make(map[string][]string)
 	negativeParameters := make(map[string][]string)
 	var positiveRules []string
