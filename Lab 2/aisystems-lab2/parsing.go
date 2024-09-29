@@ -23,7 +23,7 @@ func FormQuery(inputSplit []string) (string, bool) {
 		&positiveRules, &negativeRules, &difficulties); !ok {
 		return "", false
 	}
-	query := formEntriesIntoQuery(positiveParameters, negativeParameters, &positiveRules, &negativeRules, &difficulties)
+	query := formEntriesIntoQuery(positiveParameters, negativeParameters, positiveRules, negativeRules, difficulties)
 	return query + ".", true
 }
 
@@ -55,26 +55,26 @@ func parseInputIntoEntries(inputSplit []string, positiveParameters, negativePara
 }
 
 func formEntriesIntoQuery(positiveParameters, negativeParameters map[string][]string,
-	positiveRules, negativeRules *[]string, difficulties *[]int) string {
+	positiveRules, negativeRules []string, difficulties []int) string {
 	query := ""
-	for _, rule := range *positiveRules {
+	for _, rule := range positiveRules {
 		query = appendRule(query, rule) + ","
 	}
 	for k, v := range positiveParameters {
 		query = appendParameter(query, k, v) + ","
 	}
-	if len(*negativeRules) > 0 || len(negativeParameters) > 0 {
+	if len(negativeRules) > 0 || len(negativeParameters) > 0 {
 		if query == "" {
 			query += "class(Class), "
 		}
-		for _, rule := range *negativeRules {
+		for _, rule := range negativeRules {
 			query = appendRule(query+" (\\+ ", rule) + "),"
 		}
 		for k, v := range negativeParameters {
 			query = appendParameter(query+" (\\+ ", k, v) + "),"
 		}
 	}
-	query = appendDifficulties(query, *difficulties)
+	query = appendDifficulties(query, difficulties)
 	if strings.HasSuffix(query, ",") {
 		query = query[:len(query)-1]
 	}
