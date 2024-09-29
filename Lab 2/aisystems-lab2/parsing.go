@@ -13,17 +13,21 @@ var parameters = map[string][]string{
 
 var rules = []string{"beginner_friendly", "challenging", "militant", "magic", "body", "soul"}
 
-func FormQuery(inputSplit []string, positiveParameters, negativeParameters map[string][]string,
-	positiveRules, negativeRules *[]string, difficulties *[]int) (string, bool) {
-	if ok := parseInputToEntries(inputSplit, positiveParameters, negativeParameters,
-		positiveRules, negativeRules, difficulties); !ok {
+func FormQuery(inputSplit []string) (string, bool) {
+	positiveParameters := make(map[string][]string)
+	negativeParameters := make(map[string][]string)
+	var positiveRules []string
+	var negativeRules []string
+	difficulties := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+	if ok := parseInputIntoEntries(inputSplit, positiveParameters, negativeParameters,
+		&positiveRules, &negativeRules, &difficulties); !ok {
 		return "", false
 	}
-	query := formEntriesIntoQuery(positiveParameters, negativeParameters, positiveRules, negativeRules, difficulties)
+	query := formEntriesIntoQuery(positiveParameters, negativeParameters, &positiveRules, &negativeRules, &difficulties)
 	return query + ".", true
 }
 
-func parseInputToEntries(inputSplit []string, positiveParameters, negativeParameters map[string][]string,
+func parseInputIntoEntries(inputSplit []string, positiveParameters, negativeParameters map[string][]string,
 	positiveRules, negativeRules *[]string, difficulties *[]int) bool {
 	for i := 0; i < len(inputSplit); {
 		negative := false

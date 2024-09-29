@@ -29,13 +29,7 @@ func HandleQuery(pro *prolog.Interpreter, inputSplit []string) string {
 }
 
 func inputToQuery(inputSplit []string) (string, bool) {
-	positiveParameters := make(map[string][]string)
-	negativeParameters := make(map[string][]string)
-	var positiveRules []string
-	var negativeRules []string
-	difficulties := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
-	query, ok := FormQuery(inputSplit, positiveParameters, negativeParameters,
-		&positiveRules, &negativeRules, &difficulties)
+	query, ok := FormQuery(inputSplit)
 	return query, ok
 }
 
