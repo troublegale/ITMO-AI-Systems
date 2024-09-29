@@ -110,7 +110,11 @@ func handleHelp(inputSplit []string) {
 var scanner = bufio.NewScanner(os.Stdin)
 
 func readInput() string {
-	scanner.Scan()
+	ok := scanner.Scan()
+	if !ok {
+		Goodbye()
+		os.Exit(0)
+	}
 	return strings.TrimSpace(scanner.Text())
 }
 
