@@ -32,6 +32,7 @@ func Goodbye() {
 }
 
 func ShowHelpOptions() {
+	fmt.Println("To see information about this program and the subject area use 'explain'")
 	fmt.Println("To see query options use 'help query'")
 	fmt.Println("To see parameter options use 'help param'")
 	fmt.Println("To quit use 'quit'")
@@ -89,7 +90,9 @@ func HandleUserInput(pro *prolog.Interpreter) {
 			if inputSplit[0] == "quit" {
 				return
 			}
-			if inputSplit[0] == "help" {
+			if inputSplit[0] == "explain" {
+				showExplanation()
+			} else if inputSplit[0] == "help" {
 				handleHelp(inputSplit)
 			} else {
 				answer := HandleQuery(pro, inputSplit)
@@ -98,6 +101,23 @@ func HandleUserInput(pro *prolog.Interpreter) {
 			}
 		}
 	}
+}
+
+func showExplanation() {
+	fmt.Println("This program helps you choose a class for the Dungeons & Dragons board RPG.")
+	fmt.Println("By writing a query, you set a set of parameters that you want your class to have.")
+	fmt.Println("After executing your query the program will output a set of classes that fit your preferences.")
+	fmt.Println("Class parameters include their primary stat, their primary fighting style and their difficulty.")
+	fmt.Println()
+	fmt.Println("Classes with the primary stat of STR, DEX or CNS are considered 'body' classes.")
+	fmt.Println("Classes with the primary stat of INT, WSD or CHR are considered 'soul' classes.")
+	fmt.Println("'Militant' classes are those who fight in melee or with a ranged weapon.")
+	fmt.Println("'Magic' classes are those who cast spells or support their partymates.")
+	fmt.Println("(Note: swordlemages are considered both 'militant' and 'magic' classes)")
+	fmt.Println("There are also 'beginner-friendly' and 'challenging' classes.")
+	fmt.Println()
+	fmt.Println("Now try writing your query! If you are not sure how to do it, use 'help'.")
+	fmt.Println()
 }
 
 func handleHelp(inputSplit []string) {
