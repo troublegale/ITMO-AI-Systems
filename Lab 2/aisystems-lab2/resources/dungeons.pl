@@ -18,7 +18,7 @@ class('Alchemist').
 class('Warlord').
 class('Jaeger').
 class('Stargazer').
-class('BloodHunter').
+class('Bloodhunter').
 class('Runekeeper').
 class('Shaman').
 
@@ -42,7 +42,7 @@ primary_stat('Alchemist', 'int').
 primary_stat('Warlord', 'str').
 primary_stat('Jaeger', 'cns').
 primary_stat('Stargazer', 'int').
-primary_stat('BloodHunter', 'dex').
+primary_stat('Bloodhunter', 'dex').
 primary_stat('Runekeeper', 'int').
 primary_stat('Shaman', 'wsd').
 
@@ -64,7 +64,7 @@ primary_fighting_style('Alchemist', 'support').
 primary_fighting_style('Warlord', 'support').
 primary_fighting_style('Jaeger', 'melee').
 primary_fighting_style('Stargazer', 'caster').
-primary_fighting_style('BloodHunter', 'swordlemage').
+primary_fighting_style('Bloodhunter', 'swordlemage').
 primary_fighting_style('Runekeeper', 'caster').
 primary_fighting_style('Shaman', 'caster').
 
@@ -86,7 +86,7 @@ difficulty('Alchemist', 8).
 difficulty('Warlord', 2).
 difficulty('Jaeger', 2).
 difficulty('Stargazer', 9).
-difficulty('BloodHunter', 6).
+difficulty('Bloodhunter', 6).
 difficulty('Runekeeper', 4).
 difficulty('Shaman', 8).
 
